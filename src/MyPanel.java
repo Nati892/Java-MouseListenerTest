@@ -2,13 +2,13 @@ import javax.swing.JPanel;
 import java.awt.*;
 
 public class MyPanel extends JPanel {
-    public int x = 0;
-    public int y = 0;
-    public String text = "";
+    private int x = 0;
+    private int y = 0;
+    private String text = "";
     private MyMouseAdapterPanel newAdapter = null;
 
     public MyPanel() {
-        newAdapter = new MyMouseAdapterPanel(this);
+        this.newAdapter = new MyMouseAdapterPanel(this);
         addMouseListener(newAdapter);
         addMouseMotionListener(newAdapter);
     }
@@ -20,5 +20,24 @@ public class MyPanel extends JPanel {
         g.drawString(text, x, y);
     }
 
+    public void setxCoordinate(int newx) {
+        this.x = newx;
+    }
+    public void setyCoordinate(int newy) {
+        this.y = newy;
+    }
+    public void setText(String newText) {
+        this.text = newText;
+    }
+
+    public int getxCoordinate() {
+       return this.x;
+    }
+    public int getyCoordinate() {
+        return this.y;
+    }
+    public String getText() {
+        return this.text;
+    }
 
 }

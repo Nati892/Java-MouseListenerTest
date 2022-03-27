@@ -20,22 +20,21 @@ public class MyMouseAdapterPanel extends MouseAdapter {
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        Point curr = e.getPoint();
-        drawMyString(panel.x, panel.y, "dragged");
+        drawMyString(panel.getxCoordinate(), panel.getyCoordinate(), "dragged");
         super.mouseDragged(e);
 
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        drawMyString(panel.x, panel.y, "moved");
+        drawMyString(panel.getxCoordinate(), panel.getyCoordinate(), "moved");
         super.mouseMoved(e);
     }
 
     private void drawMyString(int newx, int newy, String newtext) {
-        panel.x = newx;
-        panel.y = newy;
-        panel.text = newtext;
+        panel.setxCoordinate(newx);
+        panel.setyCoordinate(newy);
+        panel.setText(newtext);
         panel.repaint();
 
     }
